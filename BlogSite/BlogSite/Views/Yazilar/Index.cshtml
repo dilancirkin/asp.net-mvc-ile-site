@@ -1,0 +1,141 @@
+﻿@model List<BlogSite.Models.Yazi>
+@{
+    ViewBag.Title = "Yazılar";
+    Layout = "~/Areas/admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<   <div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Yazilar Sayfası</h1>
+                   
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Yazilar</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title"></h3>
+                    </div>
+                    
+                </div>
+             
+                <div class="card">
+                    <div class="card-header">
+                        @Html.ActionLink("Yeni Yazı Ekle", "YaziEkle", null, new { @class = "btn btn-primary mx-4" })
+                    </div>
+          
+                    <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Resim</th>
+                                    <th>İçerik</th>
+                                    <th>Başlık</th>
+                                    <th>Yazar</th>
+                                    <th>Güncelle</th>
+                                    <th>Sil</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var yazii in Model)
+                                {
+                                <tr>
+                                    <td><img src="~/Content/YazıResim/KucukBoyut/@yazii.ResimID" /></td>
+
+                                    <td>
+                                        <button typr="button" class="btn btn-default" data-toggle="modal" data-target="#modal_@yazii.Yaziid">İçerik</button>
+                                        <div class="modal fade" id="modal_@yazii.Yaziid">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">İçerik</h4>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        @yazii.Icerik
+                                                    </div>
+                                                    <div class="modal-footer justify-content-between">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
+                                                </div>
+                                                </div>
+                                               
+                                            </div>
+                                          
+                                        </div>
+                                    </td>
+                                    <td>
+                                        @yazii.Baslik
+                                    </td>
+                                    <td> @yazii.YazarID</td>
+                                    <td>
+                                        @Html.ActionLink("Güncelle", "Guncelle",new {yazii.Yaziid }, new {@class = "btn btn-info mx-4" })
+                                    </td>
+                                    <td>
+                                        <button typr="button" class="btn btn-danger" data-toggle="modal" data-target="#sil_@yazii.Yaziid">Sil</button>
+                                        <div class="modal fade" id="sil_@yazii.Yaziid">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Sil</h4>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <h4>Ürünü silmek istiyor musunuz?</h4>
+                                                    </div>
+                                                    <div class="modal-footer justify-content-between">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Vazgeç</button>
+                                                        @Html.ActionLink("Sil","Sil",new { yazii.Yaziid },new {@class="btn btn-danger"})
+
+                                                    </div>
+                                                </div>
+    
+                                            </div>
+                                          
+                                        </div>
+                                    </td>
+                                </tr>
+                                }
+
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Resim</th>
+                                    <th>İçerik</th>
+                                    <th>Başlık</th>
+                                    <th>Yazar</th>
+                                    <th>Güncelle</th>
+                                    <th>Sil</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+
+

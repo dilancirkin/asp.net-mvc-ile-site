@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fb9d8015133a46059b88f4a4481bf292" Name="Diagram1">
+        <EntityTypeShape EntityType="BlogSiteModel.Etiket" Width="1.5" PointX="5.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogSiteModel.Hakkimizda" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogSiteModel.Kategori" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogSiteModel.Kullanici" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogSiteModel.Resim" Width="1.5" PointX="9.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogSiteModel.Rol" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogSiteModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogSiteModel.Yazar" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogSiteModel.Yazi" Width="1.5" PointX="7.5" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogSiteModel.Yorum" Width="1.5" PointX="9.75" PointY="6" IsExpanded="true" />
+        <AssociationConnector Association="BlogSiteModel.FK_Yazi_Kategori" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogSiteModel.FK_Kullanici_Rol" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogSiteModel.FK_Resim_Yazi" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogSiteModel.FK_Yazi_Resim" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogSiteModel.FK_Yazar_Rol" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogSiteModel.FK_Yazi_Yazar" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogSiteModel.FK_Yorum_Yazi" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogSiteModel.YazarTakip" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogSiteModel.YaziEtiket" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,48 @@
+﻿@model BlogSite.Models.Hakkimizda
+@{
+    ViewBag.Title = "HakkimizdaGuncelle";
+    Layout = "~/Areas/admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="content-wrapper">
+    <div class="container">
+        <h2>Hakkimizda Güncelle Sayfası</h2>
+        @using (Html.BeginForm("Kaydet", "Hakkimizda", FormMethod.Post,
+            new { @enctype = "multipart/form-data" }))
+        {
+
+        <table class="table table-bordered">
+            <tr>
+                <td>Resim</td>
+                <td>
+                    <img src="~/Content/Logo/@Model.Resim" width="250" />
+                    @Html.TextBoxFor(m => m.resimfile, new { type = "file" })
+                </td>
+            </tr>
+            <tr>
+                <td>Başlık</td>
+                <td>
+
+                    @Html.TextBoxFor(m => m.Baslik, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m=>m.Baslik)
+                </td>
+            </tr>
+            <tr>
+                <td>İçerik</td>
+                <td>
+
+                    @Html.TextAreaFor(m => m.Icerik, new { @class = "form-control" })
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    @Html.HiddenFor(m => m.HakkimizdaID)
+                  
+                    <input type="submit" value="Güncelle" class="btn btn-success" />
+                </td>
+            </tr>
+        </table>
+        }
+    </div>
+</div>
+

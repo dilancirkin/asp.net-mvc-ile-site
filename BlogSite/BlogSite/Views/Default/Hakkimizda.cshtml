@@ -1,0 +1,30 @@
+﻿@model BlogSite.Models.Hakkimizda
+@{
+    ViewBag.Title = "Hakkimizda";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+
+  }
+
+
+
+<div class="container inner">
+
+    <h3 class="section-title">HAKKIMIZDA</h3>
+    <div class="divide30"></div>
+    <div class="row text-center services-1">
+
+        <div class="col-sm-8">
+            <div class="col-wrapper">
+                
+                    <div class="main"><img src="~/Content/Logo/@Model.Resim" style="width:700px;height: 600px" 
+                                           class="" alt="" /></div>
+                
+                <div class="">
+                    <h4>@Model.AltBaslik</h4>
+                    <p align="center"><i><b>@Model.Icerik</b></i></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

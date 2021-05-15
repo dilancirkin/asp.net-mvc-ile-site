@@ -1,0 +1,71 @@
+﻿@model BlogSite.Models.Yazar
+@{
+    ViewBag.Title = "YazarGuncelle";
+    Layout = "~/Areas/admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="container">
+        <h2>Yazar Güncelle Sayfası</h2>
+        @using (Html.BeginForm("Kaydet", "Yazarlar", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+        {
+        <table class="table table-bordered">
+            <tr>
+                <td>Resim</td>
+                <td>
+                    <input type="file" id="file "name="File" accept=".jpg,.JPG,.PNG,.png,.jpeg,.JPEG" class="form-control"/>
+                </td>
+            </tr>    <tr>
+                <td>Adı</td>
+                <td>
+
+                    @Html.TextBoxFor(m => m.Adi, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Adi)
+                </td>
+            </tr>
+            <tr>
+                <td>Soyadı</td>
+                <td>
+
+                    @Html.TextBoxFor(m => m.Soyadi, new { @class = "form-control" })
+                </td>
+            </tr>
+            <tr>
+                <td>Kullanıcı Adı</td>
+                <td>
+
+                    @Html.TextBoxFor(m => m.KullaniciAdi, new { @class = "form-control" })
+                </td>
+            </tr>
+            <tr>
+                <td>Mail Adresi</td>
+                <td>
+
+                    @Html.TextAreaFor(m => m.MailAdres, new { @class = "form-control" })
+                </td>
+            </tr>
+            <tr>
+                <td>Şifre</td>
+                <td>
+
+                    @Html.TextAreaFor(m => m.Parola, new { @class = "form-control" })
+                </td>
+            </tr>
+            <tr>
+                <td>Açıklama</td>
+                <td>
+
+                    @Html.TextAreaFor(m => m.Aciklama, new { @class = "form-control" })
+                </td>
+            </tr>      <tr>
+                <td></td>
+                <td>
+                    @Html.HiddenFor(m => m.YazarID)
+                  
+                    <input type="submit" value="Kaydet" class="btn btn-success" />
+                </td>
+            </tr>
+        </table>
+        }
+    </div>
+</div>

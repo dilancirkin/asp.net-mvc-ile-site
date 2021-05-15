@@ -1,0 +1,112 @@
+﻿
+@{
+    ViewBag.Title = "Iletisim";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+@model List<BlogSite.Models.Yazar>
+
+
+
+<div class="container left">
+    <div class="thin">
+        <div class="row text-center services-1">
+            <div class="col-sm-2">
+                <div class="col-wrapper">
+                    <div class="icon-wrapper">
+                        <div class="icon"><img src="~/Content/iletisim/icon-worldmap@2x.png" 
+                                             class="" alt="" /></div>
+                    </div>
+                    <div class="text-wrapper">
+                        <p>
+                            ANKARA
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="col-wrapper">
+                    <div class="icon-wrapper">
+                        <div class="icon"><img src="~/Content/iletisim/icon-phone@2x.png" 
+                                                class="" alt="" /> </div>
+                    </div>
+                    <div class="text-wrapper">
+                        <p>
+                           05399168475
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="col-wrapper">
+                    <div class="icon-wrapper">
+                        <div class="icon">
+                          
+                            <img src="~/Content/iletisim/icon-comment@2x.png" 
+                             class="" alt="" />
+                        </div>
+                    </div>
+                    <div class="text-wrapper">
+                        <p>
+                            @foreach (var yzr in Model)
+                            {
+                                <a class="nocolor" href="mailto:#">@yzr.MailAdres</a> <br />
+
+                            }
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        
+            <div class="divide100"></div>
+            <h3 class="section-title text-left">BİZE ULAŞIN!</h3>
+            <p class="text-left">Sorularınız ve istekleriniz için lütfen bize ulaşın:)</p>
+            <div class="divide20"></div>
+            <div class=" justify-content-start">
+                
+                <form class="forms" action="contact/form-handler.php" method="post">
+                    <fieldset>
+                        <ol class="row">
+                            <li class="form-row text-input-row name-field col-sm-4">
+                                <label><i class="icon-user"></i></label>
+                                <input type="text" name="isim" class="text-input defaultText required" title="İsim" />
+                            </li>
+                            <li class="form-row text-input-row email-field col-sm-5">
+                                <label><i class="icon-mail-alt"></i></label>
+                                <input type="text" name="email" class="text-input defaultText required email" title="Email" />
+                            </li>
+                            <li class="form-row text-input-row website-field col-sm-4">
+                                <label><i class="icon-globe"></i></label>
+                                <input type="text" name="website" class="text-input defaultText" title="Website " />
+                            </li>
+                            <li class="form-row text-input-row subject-field col-sm-5">
+                                <label><i class="icon-doc-text-inv"></i></label>
+                                <input type="text" name="subject" class="text-input defaultText" title="Konu" />
+                            </li>
+                            <li class="form-row text-area-row col-sm-9">
+                                <textarea name="message" class="text-area required"></textarea>
+                            </li>
+                            <li class="form-row hidden-row">
+                                <input type="hidden" name="hidden" value="" />
+                            </li>
+                            <li class="nocomment">
+                                <label>Bu alanı boş bırakın.</label>
+                                <input id="nocomment" value="" name="nocomment" />
+                            </li>
+                            <li class="button-row col-sm-12">
+                                <input type="submit" value="Gönder" name="submit" class="btn btn-submit bm0" />
+                            </li>
+                        </ol>
+                        <input type="hidden" name="v_error" id="v-error" value="Required" />
+                        <input type="hidden" name="v_email" id="v-email" value="Enter a valid email" />
+                    </fieldset>
+                </form>
+            </div>
+          
+        </div>
+      
+    </div>
+
+    

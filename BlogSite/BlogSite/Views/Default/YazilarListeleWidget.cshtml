@@ -1,0 +1,58 @@
+﻿
+@{
+    Layout = null;
+}
+@model IEnumerable<BlogSite.Models.Yazi>
+
+@helper IcerikKisalt(string icerik)
+{
+if (icerik.Length > 300)
+{
+    @icerik.Substring(0, 300);
+}
+else
+{
+        @icerik;
+}
+}
+    
+
+    <div class="container inner">
+        <div class="row">
+            <div class="col-sm-8 content">
+                <div class="blog-posts grid-view col2">
+                    <div class="isotope row">
+                        @foreach (var yazi in Model)
+                        {
+                            <div class="col-md-6 col-sm-12 post-grid">
+                                <div class="post">
+                                    <figure class="main">
+                                        <a href="blog-post.html">
+                                           
+                                            <img src="@yazi.Resim.OrtaBoyut" alt="" />
+                                        </a>
+                                    </figure>
+                                    <div class="meta"><span class="date">@yazi.EklenmeTarihi</span></div>
+                                    <h2 class="post-title"><a href="blog-post.html">@yazi.Baslik</a></h2>
+                                    <p>@IcerikKisalt(yazi.Icerik)</p>
+                                  
+                                    @Html.ActionLink("Detay", "Detay", new { id = yazi.Yaziid }, new { @class = "btn btn-info" })
+                                </div>
+
+                            </div>
+                        }
+
+
+
+                        <!-- /column -->
+                    </div>
+                    <!-- /.isotope -->
+                </div>
+                <!-- /.blog-posts -->
+
+            </div>
+          
+
+        </div>
+      
+    </div>

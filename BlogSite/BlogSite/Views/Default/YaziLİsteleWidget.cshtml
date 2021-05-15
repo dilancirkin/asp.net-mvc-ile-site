@@ -1,0 +1,42 @@
+﻿@model IEnumerable<BlogSite.Models.Yazi>
+
+@helper IcerikKisalt(string metin)
+{
+   if (metin.Length>300)
+{
+       @metin.Substring(0,300)
+}
+else
+{
+      @metin
+}
+  }
+    <div class="col-sm-8 content">
+        <div class="blog-posts col-blog">
+            @foreach(BlogSite.Models.Yazi yazi in Model)
+            {
+                <div class="post row">
+    <div class="col-sm-4">
+        <figure>
+            <a href="blog-post.html">
+                <div class="text-overlay">
+                    <div class="info"><span>Hepsini Oku</span></div>
+                </div>
+                <img src="style/images/art/b1.jpg" alt="" />
+            </a>
+        </figure>
+    </div>
+    <div class="col-sm-8 post-content">
+        <div class="meta"><span class="date">@yazi.EklenmeTarihi.ToShortDateString()</span>
+        <span class="comments"><a href="#">@yazi.Yorums.Count <i class="icon-chat-1"></i></a></span></div>
+        <h2 class="post-title"><a href="blog-post.html">@yazi.Baslik</a></h2>
+        <p>@IcerikKisalt(yazi.Icerik)</p>
+    </div>
+</div>
+
+            }
+            
+          
+        </div>
+      
+    </div>

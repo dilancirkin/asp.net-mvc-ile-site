@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Yazarlar";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+@model List<BlogSite.Models.Yazar>
+
+<div class="container inner">
+    <h3 class="section-title">TAKIMIMIZ</h3>
+    <div class="row team text-center">
+
+        @foreach (var yzr in Model)
+        {
+            <div id="sutun1" style="float:left;">
+                <div class="col-sm-6">
+                    <img src="@yzr.Resim"  style="width:350px;height:300px "alt="" />
+                    <h3>@yzr.Adi @yzr.Soyadi</h3>
+                    <div class="meta">YAZAR</div>
+                    <p>@yzr.Aciklama</p>
+                    <ul class="social">
+                        <li><a href="#"><i class="icon-s-twitter"></i></a></li>
+                        <li><a href="#"><i class="icon-s-instagram"></i></a></li>
+                        <li><a href="#"><i class="icon-s-linkedin"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            }
+
+
+
+        </div>
+ </div>
+

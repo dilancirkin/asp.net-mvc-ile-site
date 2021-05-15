@@ -1,0 +1,62 @@
+﻿@model BlogSite.Models.Yazi
+@{
+    ViewBag.Title = "Guncelle";
+    Layout = "~/Areas/admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="container">
+        <h2>Yazılar Güncelle Sayfası</h2>
+        @using (Html.BeginForm("Kaydet", "Yazilar", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+        {
+            <table class="table table-hover bg-white">
+
+                <tr>
+                    <td>
+                        Resim
+                    </td>
+                    <td>
+
+
+                        @Html.TextBoxFor(m => m.ResimID, new { type = "file" })
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Başlık
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Baslik, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Baslik)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        İçerik
+                    </td>
+                    <td>
+                        @Html.TextAreaFor(m => m.Icerik, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Icerik)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Yazar
+                    </td>
+                    <td>
+                        @Html.TextAreaFor(m => m.YazarID, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.YazarID)
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        @Html.HiddenFor(m => m.Yaziid)
+                        <input type="submit" value="Kaydet" class="btn btn-primary" />
+                    </td>
+                </tr>
+            </table>
+        }
+    </div>
+</div>

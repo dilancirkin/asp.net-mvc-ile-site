@@ -1,0 +1,19 @@
+﻿@model IEnumerable<BlogSite.Models.Yazi>
+<div class="sidebox widget">
+    <h3 class="widget-title section-title">Popüler Yazılar</h3>
+    <ul class="post-list">
+        @foreach (BlogSite.Models.Yazi yazi in Model)
+        {
+            <li>
+                <div class="icon-overlay"> <a href="/Yazi/Detay/@yazi.Yaziid"><img src="@yazi.Resim" alt="" /> </a> </div>
+                <div class="meta">
+                    <h5><a href="/Yazi/Detay/@yazi.Yaziid">@yazi.Baslik</a></h5>
+                    <em>@yazi.EklenmeTarihi.ToShortDateString()<span class="comments"><a href="#">@yazi.Yorum.Count 
+                        <i class="icon-chat-1"></i></a></span></em>
+                </div>
+            </li>
+        }
+
+
+    </ul>
+</div>
